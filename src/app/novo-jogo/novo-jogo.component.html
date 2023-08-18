@@ -1,0 +1,63 @@
+<mat-card>
+  <h2 class="mat-h2">Novo Jogo</h2>
+
+  <div class="info-time">
+    <div>
+      <img
+        *ngIf="selectedTeam.idTime >= 0"
+        [src]="getTeamImageUrl(selectedTeam.nomeTime)"
+        style="display: block; width: 150px; margin-bottom: 20px"
+      />
+      <img
+        *ngIf="selectedTeam.idTime <= 0"
+        src="src / assets / times / nenhum.png"
+        style="display: block; width: 50%; margin-bottom: 20px"
+      />
+    </div>
+    <div style="width: 36.42%">
+      <h2 class="mat-h2">{{ selectedTeam.nomeCompleto }}</h2>
+      <span>Estádio: {{ selectedTeam.estadio }}</span> <br />
+      <span>Capacidade: {{ selectedTeam.capacidadeEstadio }} pessoas</span
+      ><br />
+      <span>Ídolo: {{ selectedTeam.idolo }}</span
+      ><br />
+    </div>
+    <div class="stats-time">
+      <div class="stat">
+        Ataque:<app-star-rating
+          [ratingValue]="selectedTeam.forcaAtaque"
+        ></app-star-rating>
+      </div>
+      <div class="stat">
+        Defesa:<app-star-rating
+          [ratingValue]="selectedTeam.forcaDefesa"
+        ></app-star-rating>
+      </div>
+      <div class="stat">
+        Torcida:<app-star-rating
+          [ratingValue]="selectedTeam.torcida"
+        ></app-star-rating>
+      </div>
+      <div class="stat">
+        Finanças:<app-star-rating
+          [ratingValue]="selectedTeam.financas"
+        ></app-star-rating>
+      </div>
+    </div>
+  </div>
+
+  <mat-form-field style="margin: 0">
+    <mat-label>Selecione o time:</mat-label>
+    <mat-select [(ngModel)]="selectedTeam">
+      <mat-option *ngFor="let team of teams" [value]="team">{{
+        team.nomeTime
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Nome do Técnico" [(ngModel)]="coachName" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="startGame()">
+    Iniciar Jogo
+  </button>
+</mat-card>

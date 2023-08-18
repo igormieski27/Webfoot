@@ -1,0 +1,66 @@
+<mat-card>
+  <div styl="margin-bottom:20px;">
+    <h1
+      style="
+        position: absolute;
+        margin-top: 20%;
+        margin-left: 26%;
+        color: white;
+        -webkit-text-stroke: 1px black;
+        font-weight: 500;
+      "
+    >
+      WebFoot 2023
+    </h1>
+    <span
+      style="
+        font-size: 12px;
+        color: red;
+        position: absolute;
+        margin-top: 26%;
+        margin-left: 58%;
+      "
+      >beta</span
+    >
+    <img
+      src="assets/webfoot-logo.png"
+      style="display: block; margin: auto; width: 50%; margin-bottom: 20px"
+    />
+  </div>
+
+  <button
+    style="margin-bottom: 10px; width: 150px"
+    mat-raised-button
+    color="primary"
+    (click)="startNewGame()"
+  >
+    <mat-icon>play_arrow</mat-icon> Novo Jogo
+  </button>
+
+  <button
+    style="margin-bottom: 10px; width: 150px"
+    mat-raised-button
+    color="secondary"
+    (click)="startNewGame()"
+  >
+    <mat-icon>save</mat-icon> Jogo Salvo
+  </button>
+
+  <button
+    style="margin-bottom: 10px; width: 150px"
+    mat-raised-button
+    color="basic"
+    (click)="startNewGame()"
+  >
+    <mat-icon>settings</mat-icon> Opções
+  </button>
+
+  <button
+    style="margin-bottom: 10px; width: 150px"
+    mat-raised-button
+    color="accent"
+    (click)="startNewGame()"
+  >
+    <mat-icon>star</mat-icon> Premium
+  </button>
+</mat-card>

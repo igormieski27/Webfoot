@@ -1,0 +1,72 @@
+mat-card {
+  width: 60%;
+  height: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+}
+
+.carousel-container {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.carousel-image {
+  max-width: 100%;
+  height: auto;
+}
+.carousel-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-name {
+  margin-top: 10px;
+  border: 2px solid black;
+  padding: 5px 10px;
+  font-weight: bold;
+  background-color: white;
+}
+
+.stats{
+  margin-left: auto;
+  position: inherit;
+  width: 300px;
+  margin-top: -20%;
+  margin-right: 10px;
+}
+
+.stat{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.info-time{
+  height: 40%;
+  display:flex;
+  flex-direction: row;
+}
+
+.desc-time{
+  bottom: 80%;
+  position: relative;
+  float: right;
+  margin-right: 50%;
+  margin-top: 10%;
+}
+
+.stats-time{
+  padding-left: 50px;
+}

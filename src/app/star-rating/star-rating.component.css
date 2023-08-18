@@ -1,0 +1,9 @@
+.star-rating {
+  display: inline-block;
+  width:180px;
+  margin-left:auto;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
