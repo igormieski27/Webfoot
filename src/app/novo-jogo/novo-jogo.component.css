@@ -38,7 +38,7 @@ button {
   background-color: white;
 }
 
-.stats{
+.stats {
   margin-left: auto;
   position: inherit;
   width: 300px;
@@ -46,20 +46,20 @@ button {
   margin-right: 10px;
 }
 
-.stat{
+.stat {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
 }
 
-.info-time{
+.info-time {
   height: 40%;
-  display:flex;
+  display: flex;
   flex-direction: row;
 }
 
-.desc-time{
+.desc-time {
   bottom: 80%;
   position: relative;
   float: right;
@@ -67,6 +67,36 @@ button {
   margin-top: 10%;
 }
 
-.stats-time{
+.stats-time {
   padding-left: 50px;
+}
+
+.trofeus {
+  display: flex;
+  flex-direction: row;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Estilos para os troféus */
+.trofeu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Cor de fundo azul */
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.trofeu-img {
+  width: 50px;
+  height: 75px;
+}
+
+.trofeu-text {
+  color: white; /* Fonte branca */
+  margin-top: 5px;
+  width: 30px;
+  background-color: #5555ff;
+  border-radius: 5px;
+  text-align: center;
 }

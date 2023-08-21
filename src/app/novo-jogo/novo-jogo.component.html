@@ -22,6 +22,65 @@
       <span>Ídolo: {{ selectedTeam.idolo }}</span
       ><br />
     </div>
+    <div class="trofeus">
+      <div class="trofeus">
+        <!-- Título Estadual -->
+        <div
+          class="trofeu-container"
+          *ngIf="selectedTeam.titulos.estadual >= 0"
+          matTooltip="Títulos Estaduais"
+        >
+          <img src="../../assets/tacas/estadual.png" class="trofeu-img" />
+          <span class="trofeu-text">{{ selectedTeam.titulos.estadual }}</span>
+        </div>
+
+        <!-- Título do Brasileirão -->
+        <div
+          class="trofeu-container"
+          *ngIf="selectedTeam.titulos.brasileirao >= 0"
+          matTooltip="Títulos do Brasileirão"
+        >
+          <img src="../../assets/tacas/brasileirao.png" class="trofeu-img" />
+          <span class="trofeu-text">{{
+            selectedTeam.titulos.brasileirao
+          }}</span>
+        </div>
+
+        <!-- Título da Copa do Brasil -->
+        <div
+          class="trofeu-container"
+          *ngIf="selectedTeam.titulos.copaDoBrasil >= 0"
+          matTooltip="Títulos da Copa do Brasil"
+        >
+          <img src="../../assets/tacas/copadobrasil.png" class="trofeu-img" />
+          <span class="trofeu-text">{{
+            selectedTeam.titulos.copaDoBrasil
+          }}</span>
+        </div>
+
+        <!-- Título da Libertadores -->
+        <div
+          class="trofeu-container"
+          *ngIf="selectedTeam.titulos.libertadores >= 0"
+          matTooltip="Títulos da Libertadores"
+        >
+          <img src="../../assets/tacas/libertadores.png" class="trofeu-img" />
+          <span class="trofeu-text">{{
+            selectedTeam.titulos.libertadores
+          }}</span>
+        </div>
+
+        <!-- Título Mundial -->
+        <div
+          class="trofeu-container"
+          *ngIf="selectedTeam.titulos.mundial >= 0"
+          matTooltip="Títulos Mundial"
+        >
+          <img src="../../assets/tacas/mundial.png" class="trofeu-img" />
+          <span class="trofeu-text">{{ selectedTeam.titulos.mundial }}</span>
+        </div>
+      </div>
+    </div>
     <div class="stats-time">
       <div class="stat">
         Ataque:<app-star-rating

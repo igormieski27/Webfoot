@@ -21,6 +21,7 @@ import {
   MatTreeFlattener,
   MatTreeModule,
 } from '@angular/material/tree';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {
     NgbModule,
     MatIconModule,
     MatTreeModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

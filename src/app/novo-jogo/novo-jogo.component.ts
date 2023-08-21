@@ -8,30 +8,12 @@ import { Time } from '../model/time.model';
   styleUrls: ['./novo-jogo.component.css'],
 })
 export class NovoJogoComponent implements OnInit {
-  public selectedTeam: Time = {
-    idTime: 1,
-    nomeTime: 'América-MG',
-    forcaAtaque: 3,
-    forcaDefesa: 2,
-    torcida: 4,
-    estadio: 'Estádio Independência',
-    capacidadeEstadio: 23018,
-    financas: 3,
-    idolo: 'Reinaldo',
-    nomeCompleto: 'América Futebol Clube',
-    titulos: {
-      estadual: 16,
-      brasileirao: 0,
-      copaDoBrasil: 0,
-      libertadores: 0,
-      mundial: 0,
-    },
-  };
+  public selectedTeam: Time = new Time;
   coachName: string = '';
   teams = teams;
 
   ngOnInit(): void {
-    console.log(teams);
+    this.selectedTeam = teams[0];
   }
 
   removeAccents(input: string): string {
