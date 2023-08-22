@@ -22,6 +22,10 @@ import {
   MatTreeModule,
 } from '@angular/material/tree';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { GerenciadorComponent } from './gerenciador/gerenciador.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     HomeComponent,
     NovoJogoComponent,
     StarRatingComponent,
+    GerenciadorComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +51,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     MatTreeModule,
     MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
