@@ -1,6 +1,40 @@
 mat-card {
-  width: 60%;
-  height: 600px;
+  width: 90%;
+  height: 95%;
   margin: 0 auto;
   padding: 20px;
+  margin-top: 1%;
+}
+
+.table-container {
+  width: 70%;
+  float: right;
+  text-align: center;
+  margin-left: auto;
+}
+
+.summary-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-top: 10px;
+  p {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}
+
+.info-team {
+  width: 28%;
+  position: absolute;
+}
+.escudo-time {
+  width: 100px;
+}
+
+.next-game {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  padding: 10px;
 }

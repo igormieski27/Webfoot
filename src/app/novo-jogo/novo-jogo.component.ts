@@ -13,7 +13,31 @@ export class NovoJogoComponent implements OnInit {
   public selectedTeam: Time = new Time();
   coachName: string = '';
   teams = teams;
+  times = [
+    'América-MG',
+    'Athletico-PR',
+    'Atlético-MG',
+    'Bahia',
+    'Botafogo',
+    'Corinthians',
+    'Coritiba',
+    'Cruzeiro',
+    'Cuiabá',
+    'Flamengo',
+    'Fluminense',
+    'Fortaleza',
+    'Goiás',
+    'Grêmio',
+    'Internacional',
+    'Palmeiras',
+    'Red Bull Bragantino',
+    'Santos',
+    'São Paulo',
+    'Vasco',
+  ];
 
+  campeonato: any[] = [];
+  jogosJogador: any[] = [];
   ngOnInit(): void {
     this.selectedTeam = teams[0];
   }
@@ -33,7 +57,17 @@ export class NovoJogoComponent implements OnInit {
   startGame() {
     if (this.selectedTeam && this.coachName) {
       console.log('Iniciar Jogo:', this.selectedTeam, this.coachName);
-      // Aqui você pode implementar a lógica para iniciar o jogo
+
+      this.generateSeason(); // Gerar a temporada completa
+
+      this.jogosJogador = this.campeonato.flatMap((rodada) =>
+        rodada.filter(
+          (partida: { timeCasa: string; timeFora: string }) =>
+            partida.timeCasa === this.selectedTeam.nomeTime ||
+            partida.timeFora === this.selectedTeam.nomeTime
+        )
+      );
+      console.log(this.jogosJogador);
       this.salvarTimeSelecionado();
       this.router.navigateByUrl('/gerenciador');
     } else {
@@ -43,5 +77,45 @@ export class NovoJogoComponent implements OnInit {
 
   salvarTimeSelecionado() {
     localStorage.setItem('timeSelecionado', JSON.stringify(this.selectedTeam));
+    localStorage.setItem('treinador', JSON.stringify(this.coachName));
+    localStorage.setItem('campeonato', JSON.stringify(this.campeonato));
+    localStorage.setItem('jogosTime', JSON.stringify(this.jogosJogador));
+  }
+
+  generateSeason() {
+    for (let rodada = 0; rodada < 38; rodada++) {
+      const rodadaAtual = [];
+      const confrontosSorteados = this.shuffle([...this.times]);
+
+      for (let partida = 0; partida < 10; partida++) {
+        const timeCasa = confrontosSorteados.pop();
+        const timeFora = confrontosSorteados.pop();
+        rodadaAtual.push({
+          timeCasa,
+          timeFora,
+          idRodada: rodada + 1,
+          idPartida: partida + 1,
+        });
+      }
+
+      this.campeonato.push(rodadaAtual);
+    }
+    console.log(this.campeonato);
+  }
+
+  shuffle(array: any[]) {
+    let currentIndex = array.length;
+    let randomIndex, tempValue;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      tempValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = tempValue;
+    }
+
+    return array;
   }
 }
