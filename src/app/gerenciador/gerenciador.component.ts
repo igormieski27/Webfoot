@@ -14,13 +14,13 @@ export class GerenciadorComponent implements OnInit {
   dataSource: MatTableDataSource<Jogador> = new MatTableDataSource();
   urlEscudo: String = '';
   displayedColumns: string[] = [
-    'posicaoJogador',
-    'nomeJogador',
-    'idadeJogador',
-    'caracteristicaJogador',
-    'valorJogador',
-    'golsJogador',
-    'forcaJogador',
+    'posicao',
+    'nome',
+    'pePreferido',
+    'idade',
+    'altura',
+    'valorDeMercado',
+    'forca',
   ];
   treinador: String = '';
   jogosTime: any[] = [];
@@ -83,31 +83,31 @@ export class GerenciadorComponent implements OnInit {
       .toLowerCase();
   }
 
-  calcularValorMedioTime(): number {
-    if (this.timeSelecionado && this.jogadores.length > 0) {
-      return this.calcularValorTotalTime() / this.jogadores.length;
-    }
-    return 0;
-  }
+  // calcularValorMedioTime(): number {
+  //   if (this.timeSelecionado && this.jogadores.length > 0) {
+  //     return this.calcularValorTotalTime() / this.jogadores.length;
+  //   }
+  //   return 0;
+  // }
 
-  calcularForcaMediaTime(): number {
-    if (this.timeSelecionado && this.jogadores.length > 0) {
-      const totalForca = this.jogadores.reduce(
-        (total, jogador) => total + jogador.forcaJogador,
-        0
-      );
-      return Math.round(totalForca / this.jogadores.length);
-    }
-    return 0;
-  }
+  // calcularForcaMediaTime(): number {
+  //   if (this.timeSelecionado && this.jogadores.length > 0) {
+  //     const totalForca = this.jogadores.reduce(
+  //       (total, jogador) => total + jogador.forcaJogador,
+  //       0
+  //     );
+  //     return Math.round(totalForca / this.jogadores.length);
+  //   }
+  //   return 0;
+  // }
 
-  calcularTotalGolsElenco(): number {
-    if (this.timeSelecionado) {
-      return this.jogadores.reduce(
-        (total, jogador) => total + jogador.golsJogador,
-        0
-      );
-    }
-    return 0;
-  }
+  // calcularTotalGolsElenco(): number {
+  //   if (this.timeSelecionado) {
+  //     return this.jogadores.reduce(
+  //       (total, jogador) => total + jogador.golsJogador,
+  //       0
+  //     );
+  //   }
+  //   return 0;
+  // }
 }
