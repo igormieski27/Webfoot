@@ -27,6 +27,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ImportacaoJsonComponent } from './importacao-json/importacao-json.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     NovoJogoComponent,
     StarRatingComponent,
     GerenciadorComponent,
+    ImportacaoJsonComponent,
   ],
   imports: [
     BrowserModule,
