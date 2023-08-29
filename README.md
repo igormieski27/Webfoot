@@ -14,40 +14,6 @@ Características Principais
 O Tapp é desenvolvido utilizando as seguintes tecnologias:
 
  - Angular: O framework Angular é utilizado para a construção da interface do usuário, proporcionando uma experiência interativa e responsiva.
- -  TypeScript: A linguagem TypeScript é usada para desenvolver a lógica do jogo, implementar as regras e processos de simulação.
- -  HTML e CSS: As tecnologias web padrão são empregadas para estruturar e estilizar os elementos da interface do usuário.
-
-Instalação
-
-    Clone este repositório para o seu computador.
-
-bash
-
-git clone https://github.com/seu-usuario/tapp.git
-
-    Navegue até o diretório do projeto.
-
-bash
-
-cd tapp
-
-    Instale as dependências.
-
-bash
-
-npm install
-
-    Inicie o servidor de desenvolvimento.
-
-bash
-
-ng serve
-
-    Acesse o jogo em seu navegador em http://localhost:4200.
-
-Contribuição
-
-Sinta-se à vontade para contribuir com o Tapp através de pull requests. Se você encontrar problemas ou tiver sugestões, abra uma issue neste repositório.
-Licença
-
-Este projeto está licenciado sob a Licença MIT - consulte o arquivo LICENSE para obter detalhes.
+ - TypeScript: A linguagem TypeScript é usada para desenvolver a lógica do jogo, implementar as regras e processos de simulação.
+ - HTML e CSS: As tecnologias web padrão são empregadas para estruturar e estilizar os elementos da interface do usuário.
+ - Node.js: Node.js foi utilizado para alimentação da base de dados através de webscraping, projeto feito pro mim também (https://github.com/igormieski27/NodeJsSquadScraper)
