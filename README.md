@@ -1,7 +1,7 @@
 # Tapp - Jogo de Gerenciamento de Futebol
 
 Bem-vindo ao Tapp, um emocionante jogo de gerenciamento de futebol onde você assume o papel de técnico de uma equipe e toma decisões estratégicas para levar seu time à glória nas competições.
-Características Principais
+## Características Principais
 
  - **Gerenciamento Tático**: Defina as táticas da sua equipe para cada partida, ajustando a formação, estilo de jogo e estratégias de ataque e defesa.
  - **Transferências de Jogadores**: Contrate e venda jogadores para melhorar seu elenco. Avalie habilidades, posições e estatísticas para tomar decisões informadas.
