@@ -1,9 +1,7 @@
 # Tapp - Jogo de Gerenciamento de Futebol
 
-![image](https://github.com/igormieski27/Tapp/assets/108681204/f12c2434-9f4b-4fb7-a8c1-6949b877cd1d)
-
 ![image](https://github.com/igormieski27/Tapp/assets/108681204/b3c33110-ac42-4534-a265-7368d1e7413e)
-
+![image](https://github.com/igormieski27/Tapp/assets/108681204/f12c2434-9f4b-4fb7-a8c1-6949b877cd1d)
 
 
 Bem-vindo ao Tapp, um emocionante jogo de gerenciamento de futebol onde você assume o papel de técnico de uma equipe e toma decisões estratégicas para levar seu time à glória nas competições.
