@@ -13,29 +13,6 @@ export class NovoJogoComponent implements OnInit {
   public selectedTeam: Time = new Time();
   coachName: string = '';
   teams = teams;
-  times = [
-    'América-MG',
-    'Athletico-PR',
-    'Atlético-MG',
-    'Bahia',
-    'Botafogo',
-    'Corinthians',
-    'Coritiba',
-    'Cruzeiro',
-    'Cuiabá',
-    'Flamengo',
-    'Fluminense',
-    'Fortaleza',
-    'Goiás',
-    'Grêmio',
-    'Internacional',
-    'Palmeiras',
-    'Red Bull Bragantino',
-    'Santos',
-    'São Paulo',
-    'Vasco',
-  ];
-
   campeonato: any[] = [];
   jogosJogador: any[] = [];
   ngOnInit(): void {
@@ -67,7 +44,7 @@ export class NovoJogoComponent implements OnInit {
             partida.timeFora === this.selectedTeam.nomeTime
         )
       );
-      console.log(this.jogosJogador);
+      this.selectedTeam.partidas = this.jogosJogador;
       this.salvarTimeSelecionado();
       this.router.navigateByUrl('/gerenciador');
     } else {
@@ -85,16 +62,21 @@ export class NovoJogoComponent implements OnInit {
   generateSeason() {
     for (let rodada = 0; rodada < 38; rodada++) {
       const rodadaAtual = [];
-      const confrontosSorteados = this.shuffle([...this.times]);
+      const confrontosSorteados = this.shuffle([...this.teams]);
 
       for (let partida = 0; partida < 10; partida++) {
         const timeCasa = confrontosSorteados.pop();
         const timeFora = confrontosSorteados.pop();
         rodadaAtual.push({
-          timeCasa,
-          timeFora,
+          idTimeCasa: timeCasa.idTime,
+          idTimeFora: timeFora.idTime,
+          timeCasa: timeCasa.nomeTime,
+          timeFora: timeFora.nomeTime,
           idRodada: rodada + 1,
           idPartida: partida + 1,
+          golsTimeCasa: 0,
+          golsTimeFora: 0,
+          partida: [],
         });
       }
 

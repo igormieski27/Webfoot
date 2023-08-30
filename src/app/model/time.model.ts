@@ -1,5 +1,5 @@
 import { Jogador } from './jogador.model';
-
+import { Partida } from './partida.model';
 export class Time {
   idTime: number = 0;
   nomeTime: string = 'Nenhum';
@@ -18,5 +18,6 @@ export class Time {
     libertadores: number;
     mundial: number;
   };
-  jogadores: Jogador[] = []; // Adicionando o atributo jogadores como um array de Jogador
+  jogadores: Jogador[] = [];
+  partidas: Partida[] = []; // Adicionando o atributo jogadores como um array de Jogador
 }

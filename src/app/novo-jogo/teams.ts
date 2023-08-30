@@ -20,6 +20,7 @@ export const teams: Time[] = [
       mundial: 0,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 2,
@@ -40,6 +41,7 @@ export const teams: Time[] = [
       mundial: 0,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 3,
@@ -60,6 +62,7 @@ export const teams: Time[] = [
       mundial: 1,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 4,
@@ -80,6 +83,7 @@ export const teams: Time[] = [
       mundial: 0,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 5,
@@ -100,6 +104,7 @@ export const teams: Time[] = [
       mundial: 0,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 6,
@@ -120,6 +125,7 @@ export const teams: Time[] = [
       mundial: 2,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 7,
@@ -140,6 +146,7 @@ export const teams: Time[] = [
       mundial: 0,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 8,
@@ -160,6 +167,7 @@ export const teams: Time[] = [
       mundial: 2,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 9,
@@ -180,6 +188,7 @@ export const teams: Time[] = [
       mundial: 0,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 10,
@@ -200,6 +209,7 @@ export const teams: Time[] = [
       mundial: 3,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 11,
@@ -220,6 +230,7 @@ export const teams: Time[] = [
       mundial: 0,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 12,
@@ -240,6 +251,7 @@ export const teams: Time[] = [
       mundial: 0,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 13,
@@ -260,6 +272,7 @@ export const teams: Time[] = [
       mundial: 0,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 14,
@@ -280,6 +293,7 @@ export const teams: Time[] = [
       mundial: 3,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 15,
@@ -300,6 +314,7 @@ export const teams: Time[] = [
       mundial: 3,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 16,
@@ -320,6 +335,7 @@ export const teams: Time[] = [
       mundial: 2,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 17,
@@ -340,6 +356,7 @@ export const teams: Time[] = [
       mundial: 0,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 18,
@@ -360,6 +377,7 @@ export const teams: Time[] = [
       mundial: 3,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 19,
@@ -380,6 +398,7 @@ export const teams: Time[] = [
       mundial: 3,
     },
     jogadores: [],
+    partidas: [],
   },
   {
     idTime: 20,
@@ -400,5 +419,6 @@ export const teams: Time[] = [
       mundial: 0,
     },
     jogadores: [],
+    partidas: [],
   },
 ];

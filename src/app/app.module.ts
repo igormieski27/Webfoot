@@ -27,6 +27,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ImportacaoJsonComponent } from './importacao-json/importacao-json.component';
 
 @NgModule({
@@ -58,6 +59,7 @@ import { ImportacaoJsonComponent } from './importacao-json/importacao-json.compo
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

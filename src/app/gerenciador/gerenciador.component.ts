@@ -13,6 +13,7 @@ export class GerenciadorComponent implements OnInit {
   jogadores: Jogador[] = []; // Inicialize com um array vazio
   dataSource: MatTableDataSource<Jogador> = new MatTableDataSource();
   urlEscudo: String = '';
+  prePartida: boolean = false;
   displayedColumns: string[] = [
     'posicao',
     'nome',
@@ -20,6 +21,14 @@ export class GerenciadorComponent implements OnInit {
     'idade',
     'altura',
     'valorDeMercado',
+    'forca',
+  ];
+
+  displayedColumnsPrePartida: string[] = [
+    'selecionado',
+    'posicao',
+    'nome',
+    'pePreferido',
     'forca',
   ];
   treinador: String = '';
@@ -83,31 +92,73 @@ export class GerenciadorComponent implements OnInit {
       .toLowerCase();
   }
 
-  // calcularValorMedioTime(): number {
-  //   if (this.timeSelecionado && this.jogadores.length > 0) {
-  //     return this.calcularValorTotalTime() / this.jogadores.length;
-  //   }
-  //   return 0;
-  // }
+  iniciarJogo() {
+    this.prePartida = true;
+  }
+  toggleSelectAll() {
+    for (const jogador of this.jogadores) {
+      jogador.selecionado = !jogador.selecionado;
+    }
+  }
 
-  // calcularForcaMediaTime(): number {
-  //   if (this.timeSelecionado && this.jogadores.length > 0) {
-  //     const totalForca = this.jogadores.reduce(
-  //       (total, jogador) => total + jogador.forcaJogador,
-  //       0
-  //     );
-  //     return Math.round(totalForca / this.jogadores.length);
-  //   }
-  //   return 0;
-  // }
+  escalarAutomaticamente() {
+    const selectedPlayers: Jogador[] = [];
 
-  // calcularTotalGolsElenco(): number {
-  //   if (this.timeSelecionado) {
-  //     return this.jogadores.reduce(
-  //       (total, jogador) => total + jogador.golsJogador,
-  //       0
-  //     );
-  //   }
-  //   return 0;
-  // }
+    selectedPlayers.push(this.selectTopPlayerByPosition('Goleiro'));
+
+    selectedPlayers.push(...this.selectTopNPlayersByPosition('Zagueiro', 2));
+    selectedPlayers.push(this.selectTopPlayerByPosition('Lateral', 'Esq.'));
+    selectedPlayers.push(this.selectTopPlayerByPosition('Lateral', 'Dir.'));
+    selectedPlayers.push(this.selectTopPlayerByPosition('Volante'));
+
+    selectedPlayers.push(
+      ...this.selectTopNPlayersByPosition('Meia Central', 2)
+    );
+    selectedPlayers.push(this.selectTopPlayerByPosition('Ponta Direita'));
+    selectedPlayers.push(this.selectTopPlayerByPosition('Centroavante'));
+    selectedPlayers.push(this.selectTopPlayerByPosition('Ponta Esquerda'));
+
+    this.dataSource.data.forEach((jogador) => {
+      jogador.selecionado = selectedPlayers.some((selectedJogador) => {
+        return (
+          selectedJogador.nomeJogador === jogador.nomeJogador &&
+          selectedJogador.forcaJogador === jogador.forcaJogador
+        );
+      });
+    });
+
+    console.log(this.dataSource.data);
+    alert('Escalação automática concluída.');
+  }
+
+  selectTopPlayerByPosition(position: string, subPosition?: string): Jogador {
+    const playersInPosition = this.dataSource.data.filter(
+      (jogador) => jogador.posicaoJogador === position
+    );
+
+    if (subPosition) {
+      return playersInPosition
+        .filter((jogador) =>
+          jogador.pePreferido.toLowerCase().includes(subPosition)
+        )
+        .reduce(
+          (a, b) => (a.forcaJogador > b.forcaJogador ? a : b),
+          playersInPosition[0]
+        );
+    }
+
+    return playersInPosition.reduce(
+      (a, b) => (a.forcaJogador > b.forcaJogador ? a : b),
+      playersInPosition[0]
+    );
+  }
+
+  selectTopNPlayersByPosition(position: string, n: number): Jogador[] {
+    const playersInPosition = this.dataSource.data.filter(
+      (jogador) => jogador.posicaoJogador === position
+    );
+    return playersInPosition
+      .sort((a, b) => b.forcaJogador - a.forcaJogador)
+      .slice(0, n);
+  }
 }
