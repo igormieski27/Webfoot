@@ -1,27 +1,23 @@
-# FrontWebFoot
+# Tapp - Jogo de Gerenciamento de Futebol
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+![image](https://github.com/igormieski27/Tapp/assets/108681204/b3c33110-ac42-4534-a265-7368d1e7413e)
+![image](https://github.com/igormieski27/Tapp/assets/108681204/f12c2434-9f4b-4fb7-a8c1-6949b877cd1d)
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Bem-vindo ao Tapp, um emocionante jogo de gerenciamento de futebol onde você assume o papel de técnico de uma equipe e toma decisões estratégicas para levar seu time à glória nas competições.
+## Características Principais
 
-## Code scaffolding
+ - **Gerenciamento Tático**: Defina as táticas da sua equipe para cada partida, ajustando a formação, estilo de jogo e estratégias de ataque e defesa.
+ - **Transferências de Jogadores**: Contrate e venda jogadores para melhorar seu elenco. Avalie habilidades, posições e estatísticas para tomar decisões informadas.
+ - **Finanças do Clube**: Gerencie as finanças do clube, monitorando receitas, despesas, salários de jogadores e custos operacionais.
+ - **Participação em Competições**: Enfrente equipes adversárias em uma variedade de competições, desde campeonatos locais até torneios internacionais.
+ - **Desenvolvimento da Equipe**: Treine seus jogadores para aprimorar suas habilidades ao longo do tempo, tornando-os mais eficazes nas partidas.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Tecnologias Utilizadas
 
-## Build
+O Tapp é desenvolvido utilizando as seguintes tecnologias:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+ - Angular: O framework Angular é utilizado para a construção da interface do usuário, proporcionando uma experiência interativa e responsiva.
+ - TypeScript: A linguagem TypeScript é usada para desenvolver a lógica do jogo, implementar as regras e processos de simulação.
+ - HTML e CSS: As tecnologias web padrão são empregadas para estruturar e estilizar os elementos da interface do usuário.
+ - Node.js: Node.js foi utilizado para alimentação da base de dados através de webscraping, projeto feito pro mim também (https://github.com/igormieski27/NodeJsSquadScraper)
