@@ -15,7 +15,6 @@ mat-card {
   overflow: auto;
   border: solid 1px #999;
   border-radius: 5px;
-  padding: 10px;
 }
 
 .summary-container {

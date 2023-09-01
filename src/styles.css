@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@coreui/coreui/dist/css/coreui.min.css';
-html, body { height: 100%; background-color: #243e69; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "~@coreui/coreui/dist/css/coreui.min.css";
+html,
+body {
+  height: 100%;
+  background-color: #243e69;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

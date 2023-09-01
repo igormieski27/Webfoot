@@ -35,6 +35,8 @@ export class GerenciadorComponent implements OnInit {
   jogosTime: any[] = [];
   campeonato: any[] = [];
   proximoJogo: any;
+  taticaJogo: String = 'Equilibrado';
+  taticas: any[] = ['Equilibrado', 'Ataque Total', 'Contra-Ataque'];
   constructor() {}
 
   ngOnInit() {
@@ -95,70 +97,72 @@ export class GerenciadorComponent implements OnInit {
   iniciarJogo() {
     this.prePartida = true;
   }
+
   toggleSelectAll() {
     for (const jogador of this.jogadores) {
       jogador.selecionado = !jogador.selecionado;
     }
   }
 
-  escalarAutomaticamente() {
-    const selectedPlayers: Jogador[] = [];
-
-    selectedPlayers.push(this.selectTopPlayerByPosition('Goleiro'));
-
-    selectedPlayers.push(...this.selectTopNPlayersByPosition('Zagueiro', 2));
-    selectedPlayers.push(this.selectTopPlayerByPosition('Lateral', 'Esq.'));
-    selectedPlayers.push(this.selectTopPlayerByPosition('Lateral', 'Dir.'));
-    selectedPlayers.push(this.selectTopPlayerByPosition('Volante'));
-
-    selectedPlayers.push(
-      ...this.selectTopNPlayersByPosition('Meia Central', 2)
+  escalarTime(jogadores: Jogador[]): Jogador[] {
+    const goleiros = jogadores.filter(
+      (jogador) => jogador.posicao === 'Goleiro'
     );
-    selectedPlayers.push(this.selectTopPlayerByPosition('Ponta Direita'));
-    selectedPlayers.push(this.selectTopPlayerByPosition('Centroavante'));
-    selectedPlayers.push(this.selectTopPlayerByPosition('Ponta Esquerda'));
-
-    this.dataSource.data.forEach((jogador) => {
-      jogador.selecionado = selectedPlayers.some((selectedJogador) => {
-        return (
-          selectedJogador.nomeJogador === jogador.nomeJogador &&
-          selectedJogador.forcaJogador === jogador.forcaJogador
-        );
-      });
-    });
-
-    console.log(this.dataSource.data);
-    alert('Escalação automática concluída.');
-  }
-
-  selectTopPlayerByPosition(position: string, subPosition?: string): Jogador {
-    const playersInPosition = this.dataSource.data.filter(
-      (jogador) => jogador.posicaoJogador === position
+    const zagueiros = jogadores.filter(
+      (jogador) => jogador.posicao === 'Zagueiro'
+    );
+    const laterais = jogadores.filter(
+      (jogador) =>
+        jogador.posicao === 'Lateral Esq.' || jogador.posicao === 'Lateral Dir.'
+    );
+    const volantes = jogadores.filter(
+      (jogador) => jogador.posicao === 'Volante'
+    );
+    const meiasCentrais = jogadores.filter(
+      (jogador) => jogador.posicao === 'Meia Central'
+    );
+    const meiasOfensivos = jogadores.filter(
+      (jogador) => jogador.posicao === 'Meia Ofensivo'
+    );
+    const pontasEsquerdas = jogadores.filter(
+      (jogador) => jogador.posicao === 'Ponta Esquerda'
+    );
+    const pontasDireitas = jogadores.filter(
+      (jogador) => jogador.posicao === 'Ponta Direita'
+    );
+    const centroavantes = jogadores.filter(
+      (jogador) => jogador.posicao === 'Centroavante'
     );
 
-    if (subPosition) {
-      return playersInPosition
-        .filter((jogador) =>
-          jogador.pePreferido.toLowerCase().includes(subPosition)
-        )
-        .reduce(
-          (a, b) => (a.forcaJogador > b.forcaJogador ? a : b),
-          playersInPosition[0]
-        );
+    function sortByForca(a: Jogador, b: Jogador): number {
+      return b.forcaJogador - a.forcaJogador;
     }
 
-    return playersInPosition.reduce(
-      (a, b) => (a.forcaJogador > b.forcaJogador ? a : b),
-      playersInPosition[0]
-    );
-  }
+    goleiros.sort(sortByForca);
+    zagueiros.sort(sortByForca);
+    laterais.sort(sortByForca);
+    volantes.sort(sortByForca);
+    meiasCentrais.sort(sortByForca);
+    meiasOfensivos.sort(sortByForca);
+    pontasEsquerdas.sort(sortByForca);
+    pontasDireitas.sort(sortByForca);
+    centroavantes.sort(sortByForca);
 
-  selectTopNPlayersByPosition(position: string, n: number): Jogador[] {
-    const playersInPosition = this.dataSource.data.filter(
-      (jogador) => jogador.posicaoJogador === position
-    );
-    return playersInPosition
-      .sort((a, b) => b.forcaJogador - a.forcaJogador)
-      .slice(0, n);
+    const escalação: Jogador[] = [
+      goleiros[0], // 1 Goleiro
+      ...zagueiros.slice(0, 2), // 2 Zagueiros
+      laterais[0], // 1 Lateral Esquerdo
+      laterais[1], // 1 Lateral Direito
+      volantes[0], // 1 Volante
+      meiasCentrais[0], // 1 Meia Central
+      meiasOfensivos[0], // 1 Meia Ofensivo
+      pontasEsquerdas[0], // 1 Ponta Esquerda
+      pontasDireitas[0], // 1 Ponta Direita
+      centroavantes[0], // 1 Centroavante
+    ];
+    // Marcar os jogadores selecionados
+    escalação.forEach((jogador) => (jogador.selecionado = true));
+
+    return escalação;
   }
 }

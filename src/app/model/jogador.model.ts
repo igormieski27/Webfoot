@@ -3,7 +3,7 @@ export class Jogador {
   idTime: number = 0;
   nomeJogador: string = '';
   idadeJogador: number = 0;
-  posicaoJogador: string = '';
+  posicao: string = '';
   pePreferido: string = '';
   caracteristicaJogador: string = '';
   valorJogador: number = 0;

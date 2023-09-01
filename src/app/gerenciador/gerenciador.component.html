@@ -13,22 +13,32 @@
       <span style="font-weight: 500">Próximo Jogo:</span>
 
       <div style="display: flex; flex-direction: row; margin: auto">
-        <img
-          [src]="getTeamImageUrl(proximoJogo.timeCasa)"
-          style="width: 100px"
-        />
+        <div style="display: flex; flex-direction: column">
+          <img
+            [src]="getTeamImageUrl(proximoJogo.timeCasa)"
+            style="width: 100px"
+          />
+          <span style="text-align: center">{{ proximoJogo.timeCasa }}</span>
+        </div>
+
         <span style="font-size: 20px; margin: auto 25px auto 25px">X</span>
-        <img
-          [src]="getTeamImageUrl(proximoJogo.timeFora)"
-          style="width: 100px"
-        />
+        <div style="display: flex; flex-direction: column">
+          <img
+            [src]="getTeamImageUrl(proximoJogo.timeFora)"
+            style="width: 100px"
+          />
+          <span style="text-align: center">{{ proximoJogo.timeFora }}</span>
+        </div>
       </div>
     </div>
-    <div>
-      <button mat-raised-button style="width: 450px" (click)="iniciarJogo()">
-        Iniciar Jogo
-      </button>
-    </div>
+    <button
+      style="width: 450px"
+      mat-raised-button
+      color="accent"
+      (click)="iniciarJogo()"
+    >
+      <mat-icon>settings</mat-icon>Escalar time
+    </button>
   </div>
 
   <div class="table-container">
@@ -99,13 +109,62 @@
 
 <mat-card *ngIf="prePartida">
   <h2>Escale seu time</h2>
-  <div style="width: 50%; height: 500px; overflow: auto; margin-left: auto">
+  <div style="width: 50%; position: absolute; margin-top: 50px">
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+      "
+    >
+      <div style="display: flex; flex-direction: column">
+        <img
+          [src]="getTeamImageUrl(proximoJogo.timeCasa)"
+          style="width: 100px"
+        />
+        <span style="text-align: center">{{ proximoJogo.timeCasa }}</span>
+      </div>
+
+      <span style="font-size: 20px; margin: auto 25px auto 25px">X</span>
+      <div style="display: flex; flex-direction: column">
+        <img
+          [src]="getTeamImageUrl(proximoJogo.timeFora)"
+          style="width: 100px"
+        />
+        <span style="text-align: center">{{ proximoJogo.timeFora }}</span>
+      </div>
+    </div>
+    <span>Estilo de jogo:</span>
+    <div style="display: flex; flex-direction: column">
+      <mat-select style="width: 200px; margin: 15px" [(ngModel)]="taticaJogo">
+        <mat-option *ngFor="let tatica of taticas" [value]="tatica">{{
+          tatica
+        }}</mat-option>
+      </mat-select>
+    </div>
+  </div>
+  <div
+    style="
+      width: 50%;
+      height: 700px;
+      overflow: auto;
+      margin-left: auto;
+      border: 1px solid;
+      border-radius: 5px;
+      padding-top: 10px;
+    "
+  >
+    <span style="padding: 10px; font-size: 15px; font-weight: 500"
+      >Jogadores</span
+    >
     <table
       mat-table
       [dataSource]="jogadores"
       matSort
       class="mat-elevation-z4"
-      style="text-align: center"
+      style="text-align: center; margin-top: 15px"
     >
       <!-- Checkbox Column -->
       <ng-container matColumnDef="selecionado">
@@ -150,8 +209,20 @@
       ></tr>
     </table>
   </div>
-
-  <button mat-button (click)="escalarAutomaticamente()">
-    Escalar Automaticamente
+  <button
+    style="width: 50%; margin-left: auto; margin-top: 5px; margin-bottom: 5px"
+    mat-raised-button
+    color="primary"
+    (click)="escalarTime(jogadores)"
+  >
+    <mat-icon>sync</mat-icon>Escalar Automaticamente
+  </button>
+  <button
+    style="width: 50%; margin-left: auto; margin-top: 5px; margin-bottom: 5px"
+    mat-raised-button
+    color="accent"
+    (click)="escalarTime(jogadores)"
+  >
+    <mat-icon>play_arrow</mat-icon>Iniciar Jogo
   </button>
 </mat-card>
