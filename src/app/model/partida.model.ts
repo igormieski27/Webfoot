@@ -8,4 +8,5 @@ export class Partida {
   golsTimeCasa: number = 0;
   golsTimeFora: number = 0;
   partida: [] = [];
+  estadio: String = '';
 }

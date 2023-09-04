@@ -77,6 +77,7 @@ export class NovoJogoComponent implements OnInit {
           golsTimeCasa: 0,
           golsTimeFora: 0,
           partida: [],
+          estadio: timeCasa.estadio,
         });
       }
 

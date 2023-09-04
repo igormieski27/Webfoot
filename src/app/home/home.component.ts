@@ -55,6 +55,8 @@ export class HomeComponent {
       } else {
         return;
       }
+    } else {
+      this.router.navigateByUrl('/novo-jogo');
     }
   }
 
