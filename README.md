@@ -1,10 +1,10 @@
-# Tapp - Jogo de Gerenciamento de Futebol
+# Webfoot - Jogo de Gerenciamento de Futebol
 
 ![image](https://github.com/igormieski27/Tapp/assets/108681204/b3c33110-ac42-4534-a265-7368d1e7413e)
 ![image](https://github.com/igormieski27/Tapp/assets/108681204/f12c2434-9f4b-4fb7-a8c1-6949b877cd1d)
 
 
-Bem-vindo ao Tapp, um emocionante jogo de gerenciamento de futebol onde você assume o papel de técnico de uma equipe e toma decisões estratégicas para levar seu time à glória nas competições.
+Bem-vindo ao Webfoot, um emocionante jogo de gerenciamento de futebol onde você assume o papel de técnico de uma equipe e toma decisões estratégicas para levar seu time à glória nas competições.
 ## Características Principais
 
  - **Gerenciamento Tático**: Defina as táticas da sua equipe para cada partida, ajustando a formação, estilo de jogo e estratégias de ataque e defesa.
@@ -15,7 +15,7 @@ Bem-vindo ao Tapp, um emocionante jogo de gerenciamento de futebol onde você as
 
 ## Tecnologias Utilizadas
 
-O Tapp é desenvolvido utilizando as seguintes tecnologias:
+O Webfoot é desenvolvido utilizando as seguintes tecnologias:
 
  - Angular: O framework Angular é utilizado para a construção da interface do usuário, proporcionando uma experiência interativa e responsiva.
  - TypeScript: A linguagem TypeScript é usada para desenvolver a lógica do jogo, implementar as regras e processos de simulação.
