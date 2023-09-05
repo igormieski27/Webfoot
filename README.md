@@ -1,6 +1,6 @@
 # Webfoot - Jogo de Gerenciamento de Futebol
 <p align="center">
-  <img src="[http://some_place.com/image.png](https://github.com/igormieski27/Webfoot/assets/108681204/5875327f-c013-4d61-bb25-5153846ad89c)" />
+  <img src="https://github.com/igormieski27/Webfoot/assets/108681204/5875327f-c013-4d61-bb25-5153846ad89c" />
 </p>
 
 Screenshots:
