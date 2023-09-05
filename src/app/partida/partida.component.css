@@ -1,0 +1,30 @@
+mat-card {
+  width: 65%;
+  height: 95%;
+  margin: 0 auto;
+  margin-left: 50px;
+  padding: 0px;
+  margin-top: 1%;
+  background: transparent;
+  background-color: #1a1b26;
+  color: white;
+  float: left;
+}
+
+.info-bar {
+  width: 30%;
+  height: 95%;
+  float: right;
+  text-align: center;
+  margin-left: auto;
+  margin-top: 1%;
+  margin-right: 1%;
+  overflow: auto;
+  border-radius: 5px;
+  background-color: #1a1b26;
+  color: white;
+}
+
+.escudo-time {
+  width: 100px;
+}

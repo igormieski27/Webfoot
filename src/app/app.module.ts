@@ -29,6 +29,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ImportacaoJsonComponent } from './importacao-json/importacao-json.component';
+import { PartidaComponent } from './partida/partida.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ImportacaoJsonComponent } from './importacao-json/importacao-json.compo
     StarRatingComponent,
     GerenciadorComponent,
     ImportacaoJsonComponent,
+    PartidaComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,35 +1,15 @@
 <mat-card>
   <div styl="margin-bottom:20px;">
-    <h1
-      style="
-        position: absolute;
-        margin-top: 20%;
-        margin-left: 26%;
-        color: white;
-        -webkit-text-stroke: 1px black;
-        font-weight: 500;
-      "
-    >
-      Webfoot
+    <h1 class="titulo">
+      <span style="color: #06ff06">Web</span
+      ><span style="color: yellow">foot</span>
     </h1>
-    <span
-      style="
-        font-size: 12px;
-        color: red;
-        position: absolute;
-        margin-top: 26%;
-        margin-left: 58%;
-      "
-      >beta</span
-    >
-    <img
-      src="assets/webfoot-logo.png"
-      style="display: block; margin: auto; width: 50%; margin-bottom: 20px"
-    />
+    <span class="subscribed">beta</span>
+    <img src="assets/webfoot-logo.png" class="logo" />
   </div>
 
   <button
-    style="margin-bottom: 10px; width: 200px"
+    class="botao"
     mat-raised-button
     color="primary"
     (click)="startNewGame()"
@@ -38,7 +18,7 @@
   </button>
 
   <button
-    style="margin-bottom: 10px; width: 200px"
+    class="botao"
     mat-raised-button
     color="accent"
     (click)="importarJson()"
@@ -46,12 +26,7 @@
     <mat-icon>upload</mat-icon>Importar patch
   </button>
 
-  <button
-    style="margin-bottom: 10px; width: 200px"
-    mat-raised-button
-    color="warn"
-    (click)="startNewGame()"
-  >
+  <button class="botao" mat-raised-button color="warn" (click)="startNewGame()">
     <mat-icon>star</mat-icon> Premium
   </button>
 </mat-card>

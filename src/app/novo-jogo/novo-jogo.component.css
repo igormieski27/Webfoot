@@ -3,6 +3,8 @@ mat-card {
   height: 600px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #1a1b26;
+  color: white;
 }
 
 .mat-form-field {

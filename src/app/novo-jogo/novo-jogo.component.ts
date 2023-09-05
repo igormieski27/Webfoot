@@ -57,6 +57,7 @@ export class NovoJogoComponent implements OnInit {
     localStorage.setItem('treinador', JSON.stringify(this.coachName));
     localStorage.setItem('campeonato', JSON.stringify(this.campeonato));
     localStorage.setItem('jogosTime', JSON.stringify(this.jogosJogador));
+    localStorage.setItem('listaTimes', JSON.stringify(this.teams));
   }
 
   generateSeason() {

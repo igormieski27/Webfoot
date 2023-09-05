@@ -15,3 +15,33 @@ button {
   display: block;
   margin: 0 auto;
 }
+
+.titulo {
+  position: absolute;
+  margin-top: 18%;
+  margin-left: 35%;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  font-weight: 500;
+  font-size: 40px;
+}
+
+.subscribed {
+  font-size: 12px;
+  color: red;
+  position: absolute;
+  margin-top: 26%;
+  margin-left: 58%;
+}
+
+.logo {
+  display: block;
+  margin: auto;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.botao {
+  margin-bottom: 10px;
+  width: 200px;
+}
