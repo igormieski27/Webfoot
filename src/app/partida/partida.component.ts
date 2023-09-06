@@ -13,6 +13,7 @@ export class PartidaComponent implements OnInit {
   timeFora = new Time();
   urlTimeFora: String = '';
   urlTimeCasa: String = '';
+  timelineHeight: number = 0;
   ngOnInit(): void {
     const partida = localStorage.getItem('partida');
     if (partida) {
@@ -34,6 +35,7 @@ export class PartidaComponent implements OnInit {
         this.partida.chanceTimeCasa,
         this.partida.chanceTimeFora
       );
+      setTimeout(() => {}, 500); // 500 milliseconds (0.5 seconds)
     }
   }
 

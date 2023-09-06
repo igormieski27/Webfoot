@@ -3,12 +3,12 @@ mat-card {
   height: 95%;
   margin: 0 auto;
   margin-left: 50px;
-  padding: 0px;
   margin-top: 1%;
   background: transparent;
   background-color: #1a1b26;
   color: white;
   float: left;
+  padding: 1%;
 }
 
 .info-bar {
@@ -27,4 +27,37 @@ mat-card {
 
 .escudo-time {
   width: 100px;
+}
+
+.score {
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.info-time-casa {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-time-fora {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline {
+  position: relative;
+  width: 20px; /* Largura da linha do tempo */
+  height: 300px; /* Altura da linha do tempo */
+  background-color: #f0f0f0; /* Cor de fundo da linha do tempo */
+  margin: 0 auto;
+  border-radius: 10px; /* Borda arredondada para a linha do tempo */
+}
+
+.timeline-marker {
+  position: absolute;
+  width: 100%;
+  height: 2px; /* Altura do marcador da linha do tempo */
+  background-color: #007bff; /* Cor do marcador da linha do tempo */
+  bottom: 0; /* Posição inicial do marcador (no ponto zero) */
+  transition: height 0.3s ease-in-out; /* Efeito de deslizamento suave */
 }

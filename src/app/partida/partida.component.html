@@ -1,13 +1,30 @@
 <mat-card>
-  <div style="display: flex; flex-direction: row; height: 15%">
-    <div style="margin-left: auto; margin-right: auto">
+  <div
+    style="
+      display: flex;
+      flex-direction: row;
+      height: 15%;
+      background-color: #28293b;
+    "
+  >
+    <div style="margin-left: 5%; margin-top: 1%">
       <img class="escudo-time" [src]="urlTimeCasa" />
-      <span> {{ partida.timeCasa }} </span>
-      <span>{{ partida.golsTimeCasa }} </span>
-      x
-      <span>{{ partida.golsTimeFora }}</span>
+      <span style="margin-left: 30px; font-size: 25px; font-weight: bold">
+        {{ partida.timeCasa }}
+      </span>
+    </div>
 
-      <span> {{ partida.timeFora }} </span>
+    <div style="margin: auto">
+      <span class="score" style="max-width: 30px; display: inline-block"
+        >{{ partida.golsTimeCasa }}
+      </span>
+      x
+      <span class="score">{{ partida.golsTimeFora }}</span>
+    </div>
+    <div style="margin-right: 5%; margin-top: 1%">
+      <span style="margin-left: 30px; font-size: 25px; font-weight: bold">
+        {{ partida.timeFora }}
+      </span>
       <img class="escudo-time" [src]="urlTimeFora" />
     </div>
   </div>
@@ -16,6 +33,11 @@
       {{ item.idMinuto }} | {{ item.acontecimentoPartida }} |
       {{ item.jogadorGol.nome }}
     </div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-marker"></div>
+    <!-- Adicione mais marcadores se necessário -->
   </div>
 </mat-card>
 <div class="info-bar"></div>
