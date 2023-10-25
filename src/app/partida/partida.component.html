@@ -20,7 +20,9 @@
       </span>
       x
       <span class="score">{{ partida.golsTimeFora }}</span>
+      <br />
     </div>
+
     <div style="margin-right: 5%; margin-top: 1%">
       <span style="margin-left: 30px; font-size: 25px; font-weight: bold">
         {{ partida.timeFora }}
@@ -28,6 +30,7 @@
       <img class="escudo-time" [src]="urlTimeFora" />
     </div>
   </div>
+  <div>{{ tempoJogo }}'</div>
   <div *ngFor="let item of partida.partida">
     <div *ngIf="item.acontecimentoPartida.length > 0">
       {{ item.idMinuto }} | {{ item.acontecimentoPartida }} |
@@ -35,9 +38,15 @@
     </div>
   </div>
 
-  <div class="timeline">
-    <div class="timeline-marker"></div>
-    <!-- Adicione mais marcadores se necessário -->
+  <div style="display: flex">
+    <div style="margin: auto">
+      <app-goal-chance-chart
+        [chanceDataCasa]="dataCasa"
+        [chanceDataFora]="dataFora"
+        chartColor="blue"
+      ></app-goal-chance-chart>
+    </div>
   </div>
+  <br />
 </mat-card>
 <div class="info-bar"></div>

@@ -30,6 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ImportacaoJsonComponent } from './importacao-json/importacao-json.component';
 import { PartidaComponent } from './partida/partida.component';
+import { NgChartsModule } from 'ng2-charts';
+import { GoalChanceChartComponent } from './partida/goal-chance-chart/goal-chance-chart.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { PartidaComponent } from './partida/partida.component';
     GerenciadorComponent,
     ImportacaoJsonComponent,
     PartidaComponent,
+    GoalChanceChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ import { PartidaComponent } from './partida/partida.component';
     MatSortModule,
     MatDialogModule,
     MatCheckboxModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

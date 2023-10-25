@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Partida } from '../model/partida.model';
 import { Time } from '../model/time.model';
 import { Jogador } from '../model/jogador.model';
+import { ChartDataset, ChartOptions, ChartType } from 'chart.js';
 
 @Component({
   templateUrl: './partida.component.html',
@@ -14,7 +15,11 @@ export class PartidaComponent implements OnInit {
   urlTimeFora: String = '';
   urlTimeCasa: String = '';
   timelineHeight: number = 0;
-  ngOnInit(): void {
+  tempoJogo: number = 0;
+  dataCasa: number[] = [];
+  dataFora: number[] = [];
+
+  async ngOnInit(): Promise<void> {
     const partida = localStorage.getItem('partida');
     if (partida) {
       this.partida = JSON.parse(partida);
@@ -29,13 +34,14 @@ export class PartidaComponent implements OnInit {
     }
     this.urlTimeCasa = this.getTeamImageUrl(this.partida.timeCasa);
     this.urlTimeFora = this.getTeamImageUrl(this.partida.timeFora);
-    for (let i = 0; i <= 90; i++) {
+    for (let i = 0; i <= 89; i++) {
+      await new Promise((resolve) => setTimeout(resolve, 100)); // Aguarde 1 segundo
       this.rodarMinuto(
         i,
         this.partida.chanceTimeCasa,
         this.partida.chanceTimeFora
       );
-      setTimeout(() => {}, 500); // 500 milliseconds (0.5 seconds)
+      this.tempoJogo = i;
     }
   }
 
@@ -117,18 +123,67 @@ export class PartidaComponent implements OnInit {
   }
 
   // Função rodarMinuto atualizada
-  rodarMinuto(minuto: number, probTimeCasa: number, probTimeFora: number) {
-    // Normaliza as probabilidades para 0-1 (em vez de 0-100)
-    probTimeCasa = probTimeCasa / 3000; // Por exemplo, 0.01% de chance a cada minuto
-    probTimeFora = probTimeFora / 3000; // Por exemplo, 0.01% de chance a cada minuto
+  async rodarMinuto(
+    minuto: number,
+    probTimeCasa: number,
+    probTimeFora: number
+  ) {
+    probTimeCasa = probTimeCasa / 3000;
+    probTimeFora = probTimeFora / 3000;
 
+    const sorteio = Math.random();
+    let minBônusCasa = 0.0025;
+    let maxBônusCasa = 0.01;
+    let minBônusFora = 0.002;
+    let maxBônusFora = 0.008;
+
+    // Lógica para ajustar bônus com base em eventos anteriores
+    if (minuto > 0) {
+      // Se alguém marcou um gol no minuto anterior
+      const golCasaAnterior =
+        this.partida.partida[minuto - 1]?.acontecimentoPartida === 'golCasa';
+      const golForaAnterior =
+        this.partida.partida[minuto - 1]?.acontecimentoPartida === 'golFora';
+
+      if (golCasaAnterior || golForaAnterior) {
+        minBônusCasa *= 1.2; // Aumenta o bônus do time da casa
+        minBônusFora *= 1.2; // Aumenta o bônus do time de fora
+      }
+
+      if (golCasaAnterior && !golForaAnterior) {
+        minBônusCasa *= 1.5; // Aumenta o bônus do time da casa ainda mais
+      }
+
+      if (!golCasaAnterior && golForaAnterior) {
+        minBônusFora *= 1.5; // Aumenta o bônus do time de fora ainda mais
+      }
+    }
+
+    const bônusCasa =
+      Math.random() * (maxBônusCasa - minBônusCasa) + minBônusCasa;
+    const bônusFora =
+      Math.random() * (maxBônusFora - minBônusFora) + minBônusFora;
+
+    if (sorteio < 0.5) {
+      probTimeCasa += bônusCasa;
+      probTimeFora -= bônusCasa;
+    } else {
+      probTimeFora += bônusFora;
+      probTimeCasa -= bônusFora;
+    }
+
+    this.dataCasa.push(probTimeCasa * 3000);
+    this.dataFora.push(probTimeFora * 3000);
     const numeroAleatorio = Math.random();
     console.log(
-      `Probabilidades: Casa ${probTimeCasa}, Fora ${probTimeFora}, Aleatório ${numeroAleatorio}`
+      `Probabilidades: Casa ${probTimeCasa.toFixed(
+        2
+      )}%, Fora ${probTimeFora.toFixed(
+        2
+      )}%, Aleatório ${numeroAleatorio.toFixed(2)}`
     );
 
     if (numeroAleatorio < probTimeCasa) {
-      // Gol para o time da casa
       const jogadorGol = this.selecionarJogadorComProbabilidade(
         this.partida.escalacaoTimeCasa
       );
@@ -141,7 +196,6 @@ export class PartidaComponent implements OnInit {
         jogadorGol: jogadorGol,
       };
     } else if (numeroAleatorio < probTimeCasa + probTimeFora) {
-      // Gol para o time visitante
       const jogadorGol = this.selecionarJogadorComProbabilidade(
         this.partida.escalacaoTimeFora
       );
@@ -154,7 +208,6 @@ export class PartidaComponent implements OnInit {
         jogadorGol: jogadorGol,
       };
     } else {
-      // Nenhum gol neste minuto
       console.log('Nenhum gol neste minuto');
       this.partida.partida[minuto] = {
         idPartida: this.partida.idPartida,
