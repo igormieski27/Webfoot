@@ -29,6 +29,10 @@ mat-card {
   width: 100px;
 }
 
+.escudo-time-chart {
+  width: 70px;
+}
+
 .score {
   font-size: 50px;
   font-weight: 800;

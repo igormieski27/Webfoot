@@ -199,6 +199,20 @@ export class GerenciadorComponent implements OnInit {
       estadio: this.proximoJogo.estadio,
       escalacaoTimeCasa: this.escalacaoTimeCasa,
       escalacaoTimeFora: this.escalacaoTimeFora,
+      posseBolaCasa: 0, // Possession for the home team
+      posseBolaFora: 0, // Possession for the away team
+      finalizacoesCasa: 0, // Shots for the home team
+      finalizacoesFora: 0,
+      finalizacoesNoGolCasa: 0, // Shots on target for the home team
+      finalizacoesNoGolFora: 0, // Shots on target for the away team
+      passesCompletosCasa: 0, // Completed passes for the home team
+      passesCompletosFora: 0, // Completed passes for the away team
+      precisaoPassesCasa: 0, // Pass accuracy for the home team
+      precisaoPassesFora: 0, // Pass accuracy for the away team
+      faltasCometidasCasa: 0, // Fouls committed by the home team
+      faltasCometidasFora: 0, // Fouls committed by the away team
+      tentativaPasseCasa: 0,
+      tentativaPasseFora: 0,
     };
     localStorage.setItem('partida', JSON.stringify(this.partida));
     localStorage.setItem('timeCasa', JSON.stringify(timeCasa));

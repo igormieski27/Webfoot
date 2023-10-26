@@ -1,11 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@coreui/coreui/dist/css/coreui.min.css";
+@font-face {
+  font-family: "Gamestation Condensed";
+  src: url("../src/assets/GamestationCondensed.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
   height: 100%;
   background-color: #243e69;
 }
 body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Gamestation Condensed", sans-serif; /* Aplicar a fonte ao corpo da página */
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Gamestation Condensed", sans-serif; /* Aplicar a fonte a títulos */
 }

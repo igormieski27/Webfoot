@@ -146,16 +146,16 @@ export class PartidaComponent implements OnInit {
         this.partida.partida[minuto - 1]?.acontecimentoPartida === 'golFora';
 
       if (golCasaAnterior || golForaAnterior) {
-        minBônusCasa *= 1.2; // Aumenta o bônus do time da casa
-        minBônusFora *= 1.2; // Aumenta o bônus do time de fora
+        minBônusCasa *= 1; // Aumenta o bônus do time da casa
+        minBônusFora *= 1; // Aumenta o bônus do time de fora
       }
 
       if (golCasaAnterior && !golForaAnterior) {
-        minBônusCasa *= 1.5; // Aumenta o bônus do time da casa ainda mais
+        minBônusCasa *= 2; // Aumenta o bônus do time da casa ainda mais
       }
 
       if (!golCasaAnterior && golForaAnterior) {
-        minBônusFora *= 1.5; // Aumenta o bônus do time de fora ainda mais
+        minBônusFora *= 2; // Aumenta o bônus do time de fora ainda mais
       }
     }
 
@@ -189,6 +189,8 @@ export class PartidaComponent implements OnInit {
       );
       console.log('Gol para o time da casa:', jogadorGol);
       this.partida.golsTimeCasa++;
+      this.partida.finalizacoesNoGolCasa += 1;
+      this.partida.finalizacoesCasa += 1;
       this.partida.partida[minuto] = {
         idPartida: this.partida.idPartida,
         idMinuto: minuto,
@@ -201,6 +203,8 @@ export class PartidaComponent implements OnInit {
       );
       console.log('Gol para o time visitante:', jogadorGol);
       this.partida.golsTimeFora++;
+      this.partida.finalizacoesNoGolFora += 1;
+      this.partida.finalizacoesFora += 1;
       this.partida.partida[minuto] = {
         idPartida: this.partida.idPartida,
         idMinuto: minuto,
@@ -215,6 +219,94 @@ export class PartidaComponent implements OnInit {
         acontecimentoPartida: '',
         jogadorGol: new Jogador(),
       };
+    }
+
+    this.rodarEstatisticasMinuto(probTimeCasa, probTimeFora);
+  }
+
+  rodarEstatisticasMinuto(probTimeCasa: number, probTimeFora: number) {
+    this.rodarPosse(probTimeCasa, probTimeFora);
+    this.rodarFinalizaçao(probTimeCasa, probTimeFora);
+    this.rodarPasses(probTimeCasa, probTimeFora);
+  }
+
+  rodarPosse(pc: number, pf: number) {
+    pc = pc * 3000;
+    pf = pf * 3000;
+    if (this.tempoJogo == 0) {
+      this.partida.posseBolaCasa = 50;
+      this.partida.posseBolaFora = 50;
+    }
+    const random = Math.random() * 100;
+    if (random < pc) {
+      this.partida.posseBolaCasa += 1;
+      this.partida.posseBolaFora -= 1;
+    } else {
+      this.partida.posseBolaCasa -= 1;
+      this.partida.posseBolaFora += 1;
+    }
+    this.partida.posseBolaCasa = Math.round(this.partida.posseBolaCasa);
+    this.partida.posseBolaFora = Math.round(this.partida.posseBolaFora);
+  }
+
+  rodarFinalizaçao(pc: number, pf: number) {
+    pc = pc * 1000;
+    pf = pf * 1000;
+    if (this.tempoJogo == 0) {
+      this.partida.finalizacoesCasa = 0;
+      this.partida.finalizacoesNoGolCasa = 0;
+      this.partida.finalizacoesFora = 0;
+      this.partida.finalizacoesNoGolFora = 0;
+    }
+    const random = Math.random() * 100;
+    if (this.partida.posseBolaCasa > this.partida.posseBolaFora) {
+      pc = pc + 5;
+      pf = pf + 3;
+      const pcnogol = pc / 3;
+      const pfnogol = pf / 3;
+      if (random < pc) {
+        this.partida.finalizacoesCasa += 1;
+        if (random < pcnogol) {
+          this.partida.finalizacoesNoGolCasa += 1;
+        }
+      } else if (random < pf) {
+        this.partida.finalizacoesFora += 1;
+        if (random < pfnogol) {
+          this.partida.finalizacoesNoGolFora += 1;
+        }
+      }
+    } else {
+      if (this.partida.posseBolaCasa > this.partida.posseBolaFora) {
+        pc = pc + 3;
+        pf = pf + 5;
+        const pcnogol = pc / 3;
+        const pfnogol = pf / 3;
+        if (random < pc) {
+          this.partida.finalizacoesCasa += 1;
+          if (random < pcnogol) {
+            this.partida.finalizacoesNoGolCasa += 1;
+          }
+        } else if (random < pf) {
+          this.partida.finalizacoesFora += 1;
+          if (random < pfnogol) {
+            this.partida.finalizacoesNoGolFora += 1;
+          }
+        }
+      }
+    }
+  }
+
+  rodarPasses(pc: number, pf: number) {
+    pc = pc * 3000 + 5;
+    pf = pf * 3000 + 5;
+    const random = Math.random() * 100;
+    if (this.tempoJogo == 0) {
+      this.partida.passesCompletosCasa = 0;
+      this.partida.passesCompletosFora = 0;
+      this.partida.tentativaPasseCasa = 0;
+      this.partida.tentativaPasseFora = 0;
+      this.partida.precisaoPassesCasa = 0;
+      this.partida.precisaoPassesFora = 0;
     }
   }
 }

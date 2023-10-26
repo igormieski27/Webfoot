@@ -38,13 +38,88 @@
     </div>
   </div>
 
-  <div style="display: flex">
-    <div style="margin: auto">
-      <app-goal-chance-chart
-        [chanceDataCasa]="dataCasa"
-        [chanceDataFora]="dataFora"
-        chartColor="blue"
-      ></app-goal-chance-chart>
+  <div style="display: flex; background-color: #28293b; margin-top: 18%">
+    <div style="display: flex">
+      <div style="display: flex; flex-direction: column; margin-left: 5%">
+        <img
+          style="margin-bottom: 15%; margin-bottom: 200%; margin-top: 50%"
+          class="escudo-time-chart"
+          [src]="urlTimeCasa"
+        />
+        <img class="escudo-time-chart" [src]="urlTimeFora" />
+      </div>
+      <div style="margin: auto">
+        <app-goal-chance-chart
+          [chanceDataCasa]="dataCasa"
+          [chanceDataFora]="dataFora"
+          chartColor="blue"
+        ></app-goal-chance-chart>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          width: 410px;
+          padding: 15px;
+        "
+      >
+        <div style="display: flex">
+          <div style="margin-right: auto; margin-left: 15px">
+            <img style="width: 50px; height: 50px" [src]="urlTimeCasa" />
+          </div>
+          <div style="margin-left: auto; margin-right: 15px">
+            <img
+              style="width: 30px; width: 50px; height: 50px"
+              [src]="urlTimeFora"
+            />
+          </div>
+        </div>
+        <div style="display: flex; margin-top: 10%">
+          <span style="margin-right: auto; margin-left: 15px"
+            >{{ partida.posseBolaCasa }} %</span
+          >
+          <span style="margin: auto">Posse de bola</span>
+          <span style="margin-left: auto; margin-right: 15px">
+            {{ partida.posseBolaFora }}%
+          </span>
+        </div>
+        <div style="display: flex; margin-top: 5%">
+          <span style="margin-right: auto; margin-left: 15px">{{
+            partida.finalizacoesCasa
+          }}</span>
+          <span style="margin: auto">Finalizações</span>
+          <span style="margin-left: auto; margin-right: 15px">
+            {{ partida.finalizacoesFora }}
+          </span>
+        </div>
+        <div style="display: flex; margin-top: 5%">
+          <span style="margin-right: auto; margin-left: 15px">{{
+            partida.finalizacoesNoGolCasa
+          }}</span>
+          <span style="margin: auto">Finalizações (no gol)</span>
+          <span style="margin-left: auto; margin-right: 15px">
+            {{ partida.finalizacoesNoGolFora }}
+          </span>
+        </div>
+        <div style="display: flex; margin-top: 5%">
+          <span style="margin-right: auto; margin-left: 15px">{{
+            partida.passesCompletosCasa
+          }}</span>
+          <span style="margin: auto">Passes Completos</span>
+          <span style="margin-left: auto; margin-right: 15px">
+            {{ partida.passesCompletosFora }}
+          </span>
+        </div>
+        <div style="display: flex; margin-top: 5%">
+          <span style="margin-right: auto; margin-left: 15px"
+            >{{ partida.precisaoPassesCasa }}%</span
+          >
+          <span style="margin: auto">Precisão dos Passes</span>
+          <span style="margin-left: auto; margin-right: 15px">
+            {{ partida.precisaoPassesFora }}%
+          </span>
+        </div>
+      </div>
     </div>
   </div>
   <br />

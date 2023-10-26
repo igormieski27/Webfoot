@@ -57,7 +57,7 @@ export class GoalChanceChartComponent
         labels: Array.from({ length: 90 }, (_, i) => i + 1),
         datasets: [
           {
-            label: 'Chance de gol (%)',
+            label: 'Momento', // Change the label to "Momento"
             data: chanceGeralData,
             backgroundColor:
               this.getBackgroundColorForChanceGeral(chanceGeralData),
@@ -70,15 +70,21 @@ export class GoalChanceChartComponent
             title: {
               display: true,
               text: 'Tempo de Jogo (minutos)',
+              color: 'white',
+            },
+            ticks: {
+              color: 'white',
             },
           },
           y: {
-            title: {
-              display: true,
-              text: 'Chance Geral (%)',
-            },
-            min: -100,
-            max: 100,
+            min: -100, // Set the minimum value for the y-axis
+            max: 100, // Set the maximum value for the y-axis
+            display: false, // Hide the y-axis labels
+          },
+        },
+        plugins: {
+          legend: {
+            display: false, // Hide the legend (button to toggle data display)
           },
         },
       },
