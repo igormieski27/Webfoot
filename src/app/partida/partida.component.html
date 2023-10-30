@@ -30,15 +30,33 @@
       <img class="escudo-time" [src]="urlTimeFora" />
     </div>
   </div>
-  <div>{{ tempoJogo }}'</div>
-  <div *ngFor="let item of partida.partida">
-    <div *ngIf="item.acontecimentoPartida.length > 0">
-      {{ item.idMinuto }} | {{ item.acontecimentoPartida }} |
-      {{ item.jogadorGol.nome }}
+  <div style="margin: auto; font-weight: 500" *ngIf="tempoJogo < 90">
+    {{ tempoJogo }}'
+  </div>
+  <div
+    style="margin: auto; font-weight: 500; color: #a8a8a8"
+    *ngIf="tempoJogo == 90"
+  >
+    Encerrado
+  </div>
+
+  <div style="min-height: 300px; max-height: 300px; overflow-y: scroll">
+    <div *ngFor="let item of partida.partida">
+      <div
+        *ngIf="item.acontecimentoPartida.length > 0"
+        [ngClass]="{
+          esquerda: item.acontecimentoPartida === 'golCasa',
+          direita: item.acontecimentoPartida === 'golFora'
+        }"
+      >
+        <img src="assets/gol.png" style="width: 30px; height: 30px" />
+        {{ item.idMinuto }} |
+        {{ item.jogadorGol.nome }}
+      </div>
     </div>
   </div>
 
-  <div style="display: flex; background-color: #28293b; margin-top: 18%">
+  <div style="display: flex; background-color: #28293b; margin-top: auto">
     <div style="display: flex">
       <div style="display: flex; flex-direction: column; margin-left: 5%">
         <img

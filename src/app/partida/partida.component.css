@@ -61,7 +61,28 @@ mat-card {
   position: absolute;
   width: 100%;
   height: 2px; /* Altura do marcador da linha do tempo */
-  background-color: #007bff; /* Cor do marcador da linha do tempo */
+  /* Cor do marcador da linha do tempo */
   bottom: 0; /* Posição inicial do marcador (no ponto zero) */
   transition: height 0.3s ease-in-out; /* Efeito de deslizamento suave */
 }
+
+/* Estilo para a classe "esquerda" */
+.esquerda {
+  float: left; /* Para alinhar à esquerda */
+  clear: both; /* Para evitar que elementos subsequentes flutuem ao lado */
+  width: 50%; /* O tamanho da coluna esquerda (ajuste conforme necessário) */
+  /* Cor de fundo para distinguir a coluna */
+  padding: 5px; /* Espaçamento interno para melhor legibilidade */
+}
+
+/* Estilo para a classe "direita" */
+.direita {
+  float: right;
+  text-align: right; /* Para alinhar à direita */
+  clear: both; /* Para evitar que elementos subsequentes flutuem ao lado */
+  width: 50%; /* O tamanho da coluna direita (ajuste conforme necessário) */
+  /* Cor de fundo para distinguir a coluna */
+  padding: 5px; /* Espaçamento interno para melhor legibilidade */
+}
+
+/* Estilos adicionais, como espaçamento entre colunas ou estilo do texto, podem ser adicionados conforme necessário. */

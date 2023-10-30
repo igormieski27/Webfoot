@@ -34,7 +34,7 @@ export class PartidaComponent implements OnInit {
     }
     this.urlTimeCasa = this.getTeamImageUrl(this.partida.timeCasa);
     this.urlTimeFora = this.getTeamImageUrl(this.partida.timeFora);
-    for (let i = 0; i <= 89; i++) {
+    for (let i = 0; i <= 90; i++) {
       await new Promise((resolve) => setTimeout(resolve, 100)); // Aguarde 1 segundo
       this.rodarMinuto(
         i,
@@ -61,7 +61,7 @@ export class PartidaComponent implements OnInit {
   calcularProbabilidadePorPosicao(posicao: string): number {
     switch (posicao) {
       case 'GOL':
-        return 0.001; // Chance muito baixa para goleiros
+        return 0; // Chance muito baixa para goleiros
       case 'ZAG':
         return 0.02; // Exemplo de chance para zagueiros
       case 'LTD':
@@ -261,7 +261,7 @@ export class PartidaComponent implements OnInit {
     const random = Math.random() * 100;
     if (this.partida.posseBolaCasa > this.partida.posseBolaFora) {
       pc = pc + 5;
-      pf = pf + 3;
+      pf = pf + 4;
       const pcnogol = pc / 3;
       const pfnogol = pf / 3;
       if (random < pc) {
@@ -275,31 +275,31 @@ export class PartidaComponent implements OnInit {
           this.partida.finalizacoesNoGolFora += 1;
         }
       }
-    } else {
-      if (this.partida.posseBolaCasa > this.partida.posseBolaFora) {
-        pc = pc + 3;
-        pf = pf + 5;
-        const pcnogol = pc / 3;
-        const pfnogol = pf / 3;
-        if (random < pc) {
-          this.partida.finalizacoesCasa += 1;
-          if (random < pcnogol) {
-            this.partida.finalizacoesNoGolCasa += 1;
-          }
-        } else if (random < pf) {
-          this.partida.finalizacoesFora += 1;
-          if (random < pfnogol) {
-            this.partida.finalizacoesNoGolFora += 1;
-          }
+    } else if (this.partida.posseBolaCasa < this.partida.posseBolaFora) {
+      pc = pc + 3;
+      pf = pf + 5;
+      const pcnogol = pc / 3;
+      const pfnogol = pf / 3;
+      if (random < pc) {
+        this.partida.finalizacoesCasa += 1;
+        if (random < pcnogol) {
+          this.partida.finalizacoesNoGolCasa += 1;
+        }
+      } else if (random < pf) {
+        this.partida.finalizacoesFora += 1;
+        if (random < pfnogol) {
+          this.partida.finalizacoesNoGolFora += 1;
         }
       }
     }
   }
 
   rodarPasses(pc: number, pf: number) {
-    pc = pc * 3000 + 5;
-    pf = pf * 3000 + 5;
+    pc = pc * 3000 + 25;
+    pf = pf * 3000 + 20;
     const random = Math.random() * 100;
+    const random1a5 = Math.floor(Math.random() * 14) + 1;
+    const random1a5_2 = Math.floor(Math.random() * 14) + 1;
     if (this.tempoJogo == 0) {
       this.partida.passesCompletosCasa = 0;
       this.partida.passesCompletosFora = 0;
@@ -308,5 +308,23 @@ export class PartidaComponent implements OnInit {
       this.partida.precisaoPassesCasa = 0;
       this.partida.precisaoPassesFora = 0;
     }
+    if (random < pc) {
+      this.partida.tentativaPasseCasa += random1a5;
+      this.partida.passesCompletosCasa +=
+        Math.floor(Math.random() * random1a5) + 3;
+    }
+    if (random < pf) {
+      this.partida.tentativaPasseFora += random1a5_2;
+      this.partida.passesCompletosFora +=
+        Math.floor(Math.random() * random1a5_2) + 3;
+    }
+    this.partida.precisaoPassesCasa = Math.floor(
+      (this.partida.passesCompletosCasa / this.partida.tentativaPasseCasa) * 100
+    );
+    this.partida.precisaoPassesFora = Math.floor(
+      (this.partida.passesCompletosFora / this.partida.tentativaPasseFora) * 100
+    );
   }
+
+  rodarChanceGol() {}
 }
