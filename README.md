@@ -10,15 +10,26 @@
 
 
 
-Bem-vindo ao Webfoot, um emocionante jogo de gerenciamento de futebol onde você assume o papel de técnico de uma equipe e toma decisões estratégicas para levar seu time à glória nas competições.
-## Características Principais
+Bem-vindo ao Webfoot, um jogo de gerenciamento de futebol feito do <b>completo *ZERO* por mim</b>, usando a tecnologia Angular.
 
- - **Gerenciamento Tático**: Defina as táticas da sua equipe para cada partida, ajustando a formação, estilo de jogo e estratégias de ataque e defesa.
- - **Transferências de Jogadores**: Contrate e venda jogadores para melhorar seu elenco. Avalie habilidades, posições e estatísticas para tomar decisões informadas.
- - **Finanças do Clube**: Gerencie as finanças do clube, monitorando receitas, despesas, salários de jogadores e custos operacionais.
- - **Participação em Competições**: Enfrente equipes adversárias em uma variedade de competições, desde campeonatos locais até torneios internacionais.
- - **Desenvolvimento da Equipe**: Treine seus jogadores para aprimorar suas habilidades ao longo do tempo, tornando-os mais eficazes nas partidas.
+## Estado atual do jogo
 
+- [x] Menu Prinipal
+- [x] Tela de importação de save/patch
+- [x] Tela de seleção de equipe, com todos os dados importantes
+- [x] Tela de listagem de jogadores
+- [x] Tela de escalação de jogadores
+- [x] Sistema de escalação automática
+- [x] Script de execução de partida, com dados precisos e concisos
+- [ ] Sistema de táticas apurado
+- [ ] Sistema de substituição
+- [ ] Partidas paralelas
+- [ ] Sistema de save
+- [ ] Simulação do torneio completo
+- [ ] Tabelas
+- [ ] Transferências
+
+      
 ## Tecnologias Utilizadas
 
 O Webfoot é desenvolvido utilizando as seguintes tecnologias:
