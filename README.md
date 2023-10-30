@@ -6,7 +6,8 @@
 ## Screenshots:
 
 ![image](https://github.com/igormieski27/Webfoot/assets/108681204/960b0ac3-c317-4529-b3bc-2beef63a45ca)
-![image](https://github.com/igormieski27/Webfoot/assets/108681204/beca72e4-5407-4175-9d2c-fb943d847b78)
+![image](https://github.com/igormieski27/Webfoot/assets/108681204/f42686d8-ae4f-48d9-822e-271af14b358d)
+
 
 
 
